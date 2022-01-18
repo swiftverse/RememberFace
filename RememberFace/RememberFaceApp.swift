@@ -11,7 +11,7 @@ import SwiftUI
 struct RememberFaceApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RememberFace()
         }
     }
 }
