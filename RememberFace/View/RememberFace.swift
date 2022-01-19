@@ -18,14 +18,14 @@ enum ActiveSheet: Identifiable {
 
 
 struct RememberFace: View {
-    
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State var activeSheet: ActiveSheet?
     @State var selectedFriend: Friend?
     var savePath = FileManager.documentsDirectory.appendingPathComponent("SavedFriends")
     @State var image: UIImage?
-    
+  
     @State var friends = [Friend]()
-   
+    @State var showConfirmationData = false
     @State var showImagePicker = false
     @State var showAddView = false
     var imageData: Data?
@@ -67,7 +67,8 @@ struct RememberFace: View {
             .navigationTitle("Friends List")
             .toolbar {
                 Button("Add") {
-                    activeSheet = .first
+                  //  activeSheet = .first
+                    showConfirmationData = true
                 }
             }
             
@@ -76,10 +77,28 @@ struct RememberFace: View {
         .onChange(of: image) { newValue in
             activeSheet = .second
         }
+        
+        .confirmationDialog("Select Image Source", isPresented: $showConfirmationData, actions: {
+            Button("Camera") {
+                self.sourceType = .camera
+                activeSheet = .first
+            }
+            
+            Button("Gallery") {
+                self.sourceType = .photoLibrary
+                activeSheet = .first
+            }
+            
+            Button("Cancel", role: .cancel) {
+                
+            }
+        })
+        
+        
         .sheet(item: $activeSheet) { sheet in
             switch sheet {
             case .first:
-                ImagePicker(image: $image)
+                ImagePicker(image: $image, sourceType: sourceType)
             case .second:
                 AddView(imageData: $image) { friend in
                     friends.append(friend)

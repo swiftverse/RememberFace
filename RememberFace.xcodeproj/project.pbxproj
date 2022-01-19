@@ -340,6 +340,7 @@
 				DEVELOPMENT_TEAM = SHSTR87TMU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need access to camera for loading pics";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to add your current location on map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -370,6 +371,7 @@
 				DEVELOPMENT_TEAM = SHSTR87TMU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Need access to camera for loading pics";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to add your current location on map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
